@@ -1,0 +1,75 @@
+.wrapper{
+	font-family: 'Source Sans Pro', sans-serif;
+	letter-spacing: 0.5px;
+}
+
+.nav-bar .container-fluid i{
+	margin-right: 10px;
+}
+.nav-bar .container-fluid .navbar-brand{
+	margin-left: 25px;
+}
+.nav-bar .container-fluid .d-flex{
+	margin-right: 25px;
+	margin-top: 10px;
+}
+
+.container-main{
+	display: flex;
+	min-height: 100%;
+}
+.container-main .container-main-one{
+	background-color: #25383C;
+	width: 20%;
+	font-size: 18px;
+	margin-right: 15px;
+}
+.container-main .container-main-one  ul{
+	margin: 0;
+	padding: 0;
+}
+.container-main .container-main-one  ul li{
+	list-style: none;
+	margin: 15px 0;
+	padding: 15px 0 15px 20px; 
+}
+.container-main .container-main-one  a{
+	text-decoration: none;
+	color: white;
+}
+.container-main .container-main-one li:hover{
+	background-color: #0d6efd;
+}
+.container-main .container-main-one i{
+	margin-right: 10px;
+}
+
+.container-main .container-main-two{
+	height: 100%;
+	width: 80%;
+	margin-top: 15px;
+	margin-right: 25px;
+	background-color: #FEFCFF;
+}
+.container-main .container-main-two-button{
+	margin-bottom: 15px; 
+}
+.container-main .container-main-two-button button{
+	margin-right: 10px;
+}
+.container-main .container-main-two-button i{
+	margin-right: 10px;
+	font-size: 1rem;
+}
+.container-main .container-main-two .container-main-two-table i{
+	color: #2B60DE;
+	font-size: 1.3rem;
+	margin-right: 10px;
+}
+.container-main .container-main-two .container-main-two-product .product-row-one{
+	display: flex;
+	justify-content: space-between;
+	padding: 10px 40px;
+	text-align: center;
+	margin-bottom: 10px;
+}
