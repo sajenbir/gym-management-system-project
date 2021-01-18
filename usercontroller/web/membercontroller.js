@@ -18,6 +18,7 @@ exports.edit = async (req, res) =>{
 	res.render('system/front end/member/editmember',{member});
 };
 
+//Update members in the list
 exports.update = async (req, res) =>{
 	let member = await Member.findById(req.params.id);
 	if(member){

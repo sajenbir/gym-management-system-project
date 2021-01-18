@@ -14,15 +14,15 @@
         
         <div class="container-main-two">
             <div class="container-main-two-table">
-                <form method = "post" action= "/schedule">
-                    
+                <form method = "POST" action= "/schedule/<%=schedule._id %>?_method=PUT">
+                            
                     <!-- <div class="mb-3">
                         <label for="exampleInputClassname" class="form-label">Enter the Class name</label>
                         <input type="text" name="className"class="form-control" id="exampleInputclassName" aria-describedby="Enter the class Name" value=<%=oldInput.className%>>
                         <div id="emailHelp" class="form-text"> <%= errors.className %></div>
                     </div> -->
                     <div class="input-group mb-3">
-                        <select class="form-select" id="exampleInputclassName" name="className"class="form-control" id="exampleInputclassName" aria-describedby="Enter the class Name" value=<%=oldInput.className%>>
+                        <select class="form-select" id="exampleInputclassName" name="className" aria-describedby="Enter the class Name"  value=<%=oldInput.className || schedule.className%> >
                             <option>Yoga</option>
                             <option>Powerlifting</option>
                             <option>Calisthenics</option>
@@ -33,29 +33,31 @@
                     
                     <div class="mb-3">
                         <label for="exampleInputtainerName" class="form-label">Enter name of the Trainer</label>
-                        <input type="text" name="trainerName"class="form-control" id="exampleInputtrainerName" aria-describedby="Enter name of the Tainer" value=<%=oldInput.trainerName%>>
+                        <input type="text" name="trainerName"class="form-control" id="exampleInputtrainerName" aria-describedby="Enter name of the Tainer" value=<%=oldInput.trainerName || schedule.trainerName%>>
                         <div id="emailHelp" class="form-text"><%= errors.trainerName %></div>
                     </div>
                     
                     <div class="mb-3">
                         <label for="exampleInputstartingTime" class="form-label">Enter starting time of the class</label>
-                        <input type="text" name="startingTime"class="form-control" id="exampleInputstartingTime" aria-describedby="Enter starting Time of the class" value=<%=oldInput.startingTime%>>
+                        <input type="text" name="startingTime"class="form-control" id="exampleInputstartingTime" aria-describedby="Enter starting Time of the class" value=<%=oldInput.startingTime || schedule.startingTime%>>
                         <div id="emailHelp" class="form-text"><%= errors.startingTime%></div>
                     </div>
                     
                     <div class="mb-3">
                         <label for="exampleInputendTime" class="form-label">Enter ending time of the class</label>
-                        <input type="text" name="endingTime"class="form-control" id="exampleInputendingTime" aria-describedby="Enter ending time of the class" value=<%=oldInput.endingTime%>>
+                        <input type="text" name="endingTime"class="form-control" id="exampleInputendingTime" aria-describedby="Enter ending time of the class" value=<%=oldInput.endingTime || schedule.endingTime%>>
                         <div id="emailHelp" class="form-text"><%= errors.endingTime%></div>
                     </div>
                     
                     <div class="mb-3">
                         <label for="exampleInputDays" class="form-label">Enter days of the class</label>
-                        <input type="text" name="days"class="form-control" id="exampleInputdays" aria-describedby="Enter the days of the class" value=<%=oldInput.days%>>
+                        <input type="text" name="days"class="form-control" id="exampleInputdays" aria-describedby="Enter the days of the class" value=<%=oldInput.days || schedule.days%>>
                         <div id="emailHelp" class="form-text"><%= errors.days%></div>
-                    </div>                   
+                    </div>
                     
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    
+                    
+                    <button type="submit" class="btn btn-primary">Update</button>
                 </form>
             </div>
         </div>

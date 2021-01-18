@@ -4,6 +4,8 @@ const apiRoutes =  require('./routes/member/web.js');
 const webRoutes =  require('./routes/member/web.js');
 const apiRoute =  require('./routes/class schedule/schedule.js');
 const webRoute =  require('./routes/class schedule/schedule.js');
+const apiRouter = require('./routes/product/items.js');
+const webRouter =  require('./routes/product/items.js');
 const expressValidator = require('express-validator');
 const {flashValidatorError} =  require('./handler/errorhandler'); 
 const flash = require('connect-flash');
@@ -55,7 +57,8 @@ app.use('/api', apiRoutes);
 app.use('/', webRoutes);
 app.use('api', apiRoute);
 app.use('/', webRoute);
-
+app.use('api', apiRouter);
+app.use('/', webRouter);
 
 
 app.listen(port, () => {

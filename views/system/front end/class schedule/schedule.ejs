@@ -42,9 +42,9 @@
 							<td><%= schedule.startingTime %></td>
 							<td><%= schedule.endingTime %></td>
 							<td><%= schedule.days %></td>
-							<td class='table-data-icon'><a href = "/<%= schedule._id %>/edit"><i class="fas fa-user-edit"></i></a>
+							<td class='table-data-icon'><a href = "/schedule/<%= schedule._id %>/edit"><i class="fas fa-user-edit"></i></a>
 	
-								<form method="post" action = "/<%=schedule._id %>?_method=delete">
+								<form method="post" action = "/schedule/<%=schedule._id %>?_method=delete">
 								<button type="submit"><i class="fas fa-user-times" style="color:#F70D1A;"></i></button>	
 								</form>
 							</td>

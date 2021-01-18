@@ -15,14 +15,13 @@
 
 .container-main{
 	display: flex;
-	min-height: 100%;
+	min-height: 90%;
 }
 
 .container-main .container-main-one{
 	background-color: #25383C;
 	width: 20%;
 	font-size: 18px;
-	margin-right: 15px;
 }
 .container-main .container-main-one  ul{
 	margin: 0;
@@ -45,11 +44,9 @@
 }
 
 .container-main .container-main-two{
-	height: 100%;
 	width: 80%;
-	margin-top: 15px;
-	margin-right: 25px;
 	background-color: #FEFCFF;
+	padding: 25px;
 }
 .container-main .container-main-two-button{
 	margin-top: 15px;
@@ -81,6 +78,7 @@
 .container-main .container-main-two .container-main-two-table .table-data-icon button{
 	background-color: var(--bs-table-bg);
 	border-style: none;
+	outline: none;
 }
 .container-main .container-main-two .container-main-two-product .product-row-one{
 	display: flex;

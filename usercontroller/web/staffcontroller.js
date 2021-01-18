@@ -50,6 +50,7 @@ exports.store = async (req, res) =>{
 	res.redirect('/');
 };
 
+//Removes gym employee
 exports.destroy = async(req, res) =>{
 	let gymemployee = Gymemployee.findById(req.params.id)
 	if(gymemployee){
