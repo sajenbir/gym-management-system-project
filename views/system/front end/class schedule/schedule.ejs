@@ -1,0 +1,61 @@
+<!-- header -->
+<%- include('../../partial/header.ejs')  %>
+<!--  -->
+
+<div class="wrapper">
+	<!-- navigation-bar -->
+	<%- include('../../partial/navbar.ejs')  %>
+	<!--  -->			
+
+	<div class="container-main">
+		<!-- side-bar -->
+		<%- include('../../partial/sidebar.ejs')  %>
+        <!--  -->
+        
+			<div class="container-main-two">
+				<div class="container-main-two-button">
+					<a href = "/schedule/create" button type="button" class="btn btn-outline-primary">
+						<i class="fas fa-plus"></i>Add Class</button></a>
+				</div>
+				<div class="container-main-two-table">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">Class Name</th>
+							<th scope="col">Trainer Name</th>
+							<th scope="col">Starting Time</th>
+							<th scope="col">Ending Time</th>
+							<th scope="col">Days</th>
+							<th scope="col">Action</th>							
+						</tr>
+					</thead>
+					<tbody>
+						<% if (schedule.length < 1) { %>
+							<tr>
+								<td colspan = '6' style= "text-align: center; font-size: 18px; ">No schedule in the list</td>
+							</tr>
+							<% } %>
+							<% schedule.forEach(schedule =>{ %>
+						<tr>
+							<td><%= schedule.className %></td>
+							<td><%= schedule.trainerName %></td>
+							<td><%= schedule.startingTime %></td>
+							<td><%= schedule.endingTime %></td>
+							<td><%= schedule.days %></td>
+							<td class='table-data-icon'><a href = "/<%= schedule._id %>/edit"><i class="fas fa-user-edit"></i></a>
+	
+								<form method="post" action = "/<%=schedule._id %>?_method=delete">
+								<button type="submit"><i class="fas fa-user-times" style="color:#F70D1A;"></i></button>	
+								</form>
+							</td>
+						</tr>
+						<%}) %>
+					</tbody>
+				</table>
+			</div>
+			</div>
+		</div>
+	</div>
+<!-- footer -->
+<%- include('../../partial/footer.ejs')  %>
+<!--  -->

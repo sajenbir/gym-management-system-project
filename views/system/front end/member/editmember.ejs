@@ -1,0 +1,62 @@
+<!-- header -->
+<%- include('../../partial/header.ejs')  %>
+<!--  -->
+
+<div class="wrapper">
+	<!-- navigation-bar -->
+	<%- include('../../partial/navbar.ejs')  %>
+	<!--  -->			
+	
+	<div class="container-main">
+		<!-- side-bar -->
+		<%- include('../../partial/sidebar.ejs')  %>
+		<!--  -->
+		
+		<div class="container-main-two">
+			<div class="container-main-two-table">
+				<form method="POST" action="/member/<%= member._id %>?_method=PUT">
+					
+ 					<div class="mb-3">
+						<label for="exampleInputFirstname" class="form-label">Enter the first name of member</label>
+						<input type="text" name="firstName"class="form-control" id="exampleInputMemberfname" aria-describedby="Enter first name of member" value=<%=oldInput.firstName || member.firstName%>>
+						<div id="emailHelp" class="form-text"> <%= errors.firstName%></div>
+					</div>
+					
+					<div class="mb-3">
+						<label for="exampleInputLastname" class="form-label">Enter the Last name of member</label>
+						<input type="text" name="lastName"class="form-control" id="exampleInputMemberlname" aria-describedby="Enter last name of member" value=<%=oldInput.lastName || member.lastName%>>
+						<div id="emailHelp" class="form-text"><%= errors.lastName%></div>
+					</div>
+					
+					<div class="mb-3">
+						<label for="exampleInputAge" class="form-label">Enter the age of member</label>
+						<input type="number" name="age"class="form-control" id="exampleInputage" aria-describedby="Enter age of member" value=<%=oldInput.age || member.age%>>
+						<div id="emailHelp" class="form-text"><%= errors.age%></div>
+					</div>
+					
+					<div class="mb-3">
+						<label for="exampleInputGender" class="form-label">Enter the gender of member</label>
+						<input type="radio" name="gender" value= "Male" 
+						<%if(oldInput.gender ==='Male' || member.status){%>
+							<%='checked' %>
+							<%}%>
+							>Male
+							
+							<input type="radio" name="gender" value= "Female"
+							<%if(!oldInput.gender === 'Female' || !member.status){%>
+								<%='checked' %>
+								<%}%>
+								>Female
+								<div id="emailHelp" class="form-text"></div>
+							</div>
+												
+							<button type="submit" class="btn btn-primary">Update</button>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+		
+		<!-- footer -->
+		<%- include('../../partial/footer.ejs')  %>
+		<!--  -->

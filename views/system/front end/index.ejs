@@ -1,65 +1,75 @@
-<html>
-<head>
-	<title>Gym management system</title>
-	<link href="style.css" type="text/css" rel="stylesheet">
-	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-giJF6kkoqNQ00vy+HMDP7azOuL0xtbfIcaT9wjKHr8RbDVddVHyTfAAsrekwKmP1" crossorigin="anonymous">
-	<script src="https://kit.fontawesome.com/eddb3606d6.js" crossorigin="anonymous"></script>
-</head>
-<body>
-	<div class=" wrapper">
+<!-- header -->
+<%- include('../partial/header.ejs')  %>
+<!--  -->
 
-		<!-- navigation-bar -->
-		<%- include('../partial/navbar.ejs')  %>
+<div class="wrapper">
+	<!-- navigation-bar -->
+	<%- include('../partial/navbar.ejs')  %>
+	<!--  -->
 
-		<div class="container-main">
-			<%- include('../partial/sidebar.ejs')  %>
-			
+	<div class="container-main">
+		<!-- side-bar -->
+		<%- include('../partial/sidebar.ejs')  %>
+		<!--  -->
 
-			<div class="container-main-two">
-				<div class="container-main-two-button">
-					<button type="button" class="btn btn-outline-primary"><i class="fas fa-user-plus"></i>Add Staff Members</button>
-				</div>
-				<div class = container-main-two-memberhead>
-					<nav class="nav nav-pills nav-justified">
-						<a class="nav-link active" aria-current="page" href="index.ejs">Staff Members</a>
-						<a class="nav-link" href="members.ejs">Gym Members</a>
-					</nav>
-				</div>
-				<div class="container-main-two-table">
-					<table class="table table-striped">
-						<thead>
+		<div class="container-main-two">
+			<div class="container-main-two-button">
+				<a href = /create button type="button" class="btn btn-outline-primary">
+					<i class="fas fa-user-plus"></i>Add Staff Members</button></a>
+			</div>
+			<div class = container-main-two-memberhead>
+				<nav class="nav nav-pills nav-justified">
+					<a class="nav-link active" aria-current="page" href="/">Staff Members</a>
+					<a class="nav-link" href="/member">Gym Members</a>
+				</nav>
+			</div>
+			<div class="container-main-two-table">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">First Name</th>
+							<th scope="col">Last Name</th>
+							<th scope="col">Age</th>
+							<th scope="col">Gender</th>
+							<th scope="col">Joined Date</th>
+							<th scope="col">Resigned Date</th>
+							<th scope="col">Shift</th>
+							<th scope="col">Salary</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% if (gymemployee.length < 1) { %>
 							<tr>
-								<th scope="col">First Name</th>
-								<th scope="col">Last Name</th>
-								<th scope="col">Age</th>
-								<th scope="col">Gender</th>
-								<th scope="col">Joined Date</th>
-								<th scope="col">Resigned Date</th>
-								<th scope="col">Shift</th>
-								<th scope="col">Salary</th>
-								<th scope="col">Action</th>
+								<td colspan = '9' style= "text-align: center; font-size: 18px; ">No employees in the list</td>
 							</tr>
-						</thead>
-						<tbody>
-							<% gymemployee.forEach(gymemployee =>{ %>
-							<tr>
-								<td><%= gymemployee.firstName %> </td>
-								<td><%= gymemployee.lastName %> </td>
-								<td><%= gymemployee.age %> </td>
-								<td><%= gymemployee.gender %> </td>
-								<td><%= gymemployee.joinedDate %> </td>
-								<td><%= gymemployee.resignedDate %> </td>
-								<td><%= gymemployee.Shift %> </td>	
-								<td><%= gymemployee.Salary %> </td>
-								<td><i class="fas fa-user-edit"></i><i class="fas fa-user-times" style="color:#F70D1A;"></i></td>	
-							</tr>
-							<%}) %>
-						</tbody>
-					</table>
-				</div>
+							<% } %>
+						<% gymemployee.forEach(gymemployee =>{ %>
+						<tr>
+							<td><%= gymemployee.firstName %> </td>
+							<td><%= gymemployee.lastName %> </td>
+							<td><%= gymemployee.age %> </td>
+							<td><%= gymemployee.gender %> </td>
+							<td><%= gymemployee.joinedDate %> </td>
+							<td><%= gymemployee.resignedDate %> </td>
+							<td><%= gymemployee.shift %> </td>	
+							<td><%= gymemployee.salary %> </td>
+							<td class='table-data-icon'><a href = "/<%= gymemployee._id %>/edit"><i class="fas fa-user-edit"></i></a>
+	
+								<form method="post" action = "/<%=gymemployee._id %>?_method=delete">
+								<button type="submit"><i class="fas fa-user-times" style="color:#F70D1A;"></i></button>	
+								</form>
+							</td>
+						
+						</tr>
+						<%}) %>
+					</tbody>
+				</table>
 			</div>
 		</div>
 	</div>
-</body>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta1/dist/js/bootstrap.bundle.min.js" integrity="sha384-ygbV9kiqUc6oa4msXn9868pTtWMgiQaeYH7/t7LECLbyPA2x65Kgf80OJFdroafW" crossorigin="anonymous"></script>
-</html>
+</div>
+
+<!-- footer -->
+<%- include('../partial/footer.ejs')  %>
+<!--  -->

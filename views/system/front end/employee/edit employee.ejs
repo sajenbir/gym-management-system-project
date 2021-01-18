@@ -1,0 +1,81 @@
+<!-- header -->
+<%- include('../../partial/header.ejs')  %>
+<!--  -->
+
+<div class="wrapper">
+    <!-- navigation-bar -->
+    <%- include('../../partial/navbar.ejs')  %>
+    <!--  -->			
+    
+    <div class="container-main">
+        <!-- side-bar -->
+        <%- include('../../partial/sidebar.ejs')  %>
+        <!--  -->
+        
+        <div class="container-main-two">
+            
+            <div class="container-main-two-table">
+                <form method="POST" action="/<%= gymemployee._id %>?_method=PUT">
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputFirstname" class="form-label">Enter the first name of Employee</label>
+                        <input type="text" name="firstName"class="form-control" id="exampleInputMemberfname" aria-describedby="Enter first name of employee" value=<%=oldInput.firstName || gymemployee.firstName%>>
+                        <div id="emailHelp" class="form-text"><%= errors.firstName %></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputLastname" class="form-label">Enter the last name of employee</label>
+                        <input type="text" name="lastName"class="form-control" id="exampleInputMemberlname" aria-describedby="Enter last name of employee" value=<%=oldInput.lastName || gymemployee.lastName%>>
+                        <div id="emailHelp" class="form-text"><%= errors.lastName %></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputAge" class="form-label">Enter the age of employee</label>
+                        <input type="number" name="age"class="form-control" id="exampleInputage" aria-describedby="Enter age of employee" value=<%=oldInput.age || gymemployee.age%>>
+                        <div id="emailHelp" class="form-text"><%= errors.age%></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputGender" class="form-label">Enter the gender of employee</label>
+                        <input type="radio" name="gender" value= "Male" 
+                        <%if(oldInput.gender === 'Male' || gymemployee.status){%>
+                            <%='checked'%>
+                            <%}%>
+                            >Male
+                            
+                            <input type="radio" name="gender" value= "Female"
+                            <%if(!oldInput.gender === 'Female' || !gymemployee.status){%>
+                                <%='checked'%>
+                                <%}%>
+                                >Female
+                                <div id="emailHelp" class="form-text"></div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="exampleInputResignedDate" class="form-label">Enter the employee resigned date</label>
+                                <input type="Date" name="resignedDate"class="form-control" id="exampleInputjoinedDate" aria-describedby="Enter resignedDateDate of employee" value=<%=oldInput.resignedDate || gymemployee.resignedDate%>>
+                                <div id="emailHelp" class="form-text" invalid-feedback><%= errors.resignedDate%></div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="exampleShift" class="form-label">Enter working shift of employee</label>
+                                <input type="text" name="shift"class="form-control" id="exampleInputshift" aria-describedby="Enter working shift of employee" value=<%=oldInput.shift || gymemployee.shift%>>
+                                <div id="emailHelp" class="form-text" invalid-feedback><%= errors.shift%></div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="exampleSalary" class="form-label">Enter salary of employee</label>
+                                <input type="number" name="salary"class="form-control" id="exampleSalary" aria-describedby="Enter working shift of employee" value=<%=oldInput.salary || gymemployee.salary%>>
+                                <div id="emailHelp" class="form-text" invalid-feedback><%= errors.salary%></div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary">Submit</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- footer -->
+        <%- include('../../partial/footer.ejs')  %>
+        <!--  -->

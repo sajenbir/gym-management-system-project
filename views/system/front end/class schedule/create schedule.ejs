@@ -1,0 +1,56 @@
+<!-- header -->
+<%- include('../../partial/header.ejs')  %>
+<!--  -->
+
+<div class="wrapper">
+    <!-- navigation-bar -->
+    <%- include('../../partial/navbar.ejs')  %>
+    <!--  -->			
+    
+    <div class="container-main">
+        <!-- side-bar -->
+        <%- include('../../partial/sidebar.ejs')  %>
+        <!--  -->
+        
+        <div class="container-main-two">
+            <div class="container-main-two-table">
+                <form method = "post" action= "/schedule">
+                    <div class="mb-3">
+                        <label for="exampleInputClassname" class="form-label">Enter the Class name</label>
+                        <input type="text" name="className"class="form-control" id="exampleInputclassName" aria-describedby="Enter the class Name" value=<%=oldInput.className%>>
+                        <div id="emailHelp" class="form-text"> <%= errors.className %></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputtainerName" class="form-label">Enter name of the Trainer</label>
+                        <input type="text" name="trainerName"class="form-control" id="exampleInputtrainerName" aria-describedby="Enter name of the Tainer" value=<%=oldInput.trainerName%>>
+                        <div id="emailHelp" class="form-text"><%= errors.trainerName %></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputstartingTime" class="form-label">Enter starting time of the class</label>
+                        <input type="text" name="startingTime"class="form-control" id="exampleInputstartingTime" aria-describedby="Enter starting Time of the class" value=<%=oldInput.startingTime%>>
+                        <div id="emailHelp" class="form-text"><%= errors.startingTime%></div>
+                    </div>
+                    
+                    <div class="mb-3">
+                        <label for="exampleInputendTime" class="form-label">Enter ending time of the class</label>
+                        <input type="text" name="endingTime"class="form-control" id="exampleInputendingTime" aria-describedby="Enter ending time of the class" value=<%=oldInput.endingTime%>>
+                        <div id="emailHelp" class="form-text"><%= errors.endingTime%></div>
+                    </div>
+                                      
+                    <div class="mb-3">
+                        <label for="exampleInputDays" class="form-label">Enter days of the class</label>
+                        <input type="text" name="days"class="form-control" id="exampleInputdays" aria-describedby="Enter the days of the class" value=<%=oldInput.days%>>
+                        <div id="emailHelp" class="form-text"><%= errors.days%></div>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- footer -->
+<%- include('../../partial/footer.ejs')  %>
+<!--  -->

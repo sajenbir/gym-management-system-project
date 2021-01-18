@@ -1,0 +1,70 @@
+<!-- header -->
+<%- include('../../partial/header.ejs')  %>
+<!--  -->
+
+<div class="wrapper">
+	<!-- navigation-bar -->
+	<%- include('../../partial/navbar.ejs')  %>
+	<!--  -->			
+
+	<div class="container-main">
+		<!-- side-bar -->
+		<%- include('../../partial/sidebar.ejs')  %>
+		<!--  -->
+
+		<div class="container-main-two">
+			<div class="container-main-two-button">
+				<a href = "/member/create" button type="button" class="btn btn-outline-primary">
+				<i class="fas fa-user-plus"></i>Add Gym Members</button></a>	
+			</div>
+			
+			<div class = container-main-two-memberhead>
+				<nav class="nav nav-pills nav-justified">
+					<a class="nav-link" aria-current="page" href="/">Staff Members</a>
+					<a class="nav-link active" href="/member">Gym Members</a>
+				</nav>
+			</div>
+			<div class="container-main-two-table">
+				<table class="table table-striped">
+					<thead>
+						<tr>
+							<th scope="col">First Name</th>
+							<th scope="col">Last Name</th>
+							<th scope="col">Gender</th>
+							<th scope="col">Age</th>
+							<th scope="col">Joined Date</th>
+							<th scope="col">Action</th>
+						</tr>
+					</thead>
+					<tbody>
+						<% if (member.length < 1) { %>
+						<tr>
+							<td colspan = '6' style= "text-align: center; font-size: 18px; ">No members in the list</td>
+						</tr>
+						<% } %>
+						<% member.forEach(member =>{ %>
+						<tr>
+							<td><%= member.firstName %></td>
+							<td><%= member.lastName %></td>
+							<td><%= member.gender %></td>
+							<td><%= member.age %></td>
+							<td><%= member.joinedDate %></td>
+							<td class='table-data-icon'><a href = "/member/<%= member._id%>/edit"><i class="fas fa-user-edit"></i></a>
+
+								<form method="post" action="/member/<%= member._id %>?_method=delete">
+									<button type = "submit"><i class="fas fa-user-times" style="color:#F70D1A;"></i></button>
+								</form>
+
+							</td>
+						</tr>
+						<%}) %>
+					</tbody>
+				</table>
+			</div>
+		</div>
+	</div>
+</div>
+ 
+<!-- footer -->
+<%- include('../../partial/footer.ejs')  %>
+<!--  -->

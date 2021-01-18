@@ -1,7 +1,7 @@
-const mongoose = require('mongoose');
-// require('dotenv').config({path:'.env'});
+ const mongoose = require('mongoose');
+require('dotenv').config({path:'.env'});
 
-// mongoose.Promise = global.Promise;
+
 
 (async () => {
 	try{
@@ -12,5 +12,7 @@ const mongoose = require('mongoose');
 	}
 })();
 
+require('./model/schedule.js')
 require('./model/gymemployee.js');
+require('./model/member.js');
 require('./index.js');
