@@ -47,6 +47,10 @@ exports.store = async (req, res) =>{
 	gymemployee.shift =  shift,
 	gymemployee.salary = salary,
 	await gymemployee.save();  
+	req.flash('alerts',{
+		type:'sucess',
+		message: 'Employee sucessfully added!'
+	})
 	res.redirect('/');
 };
 

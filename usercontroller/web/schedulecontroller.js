@@ -42,6 +42,10 @@ exports.store = async (req, res) =>{
 	schedule.endingTime= endingTime,
 	schedule.days= days,
 	await schedule.save();  
+	req.flash('alerts',{
+		type:'sucess',
+		message: 'Class sucessfully added in the schedule!'
+	})
 	res.redirect('/schedule');
 };
 

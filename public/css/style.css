@@ -48,9 +48,12 @@
 	background-color: #FEFCFF;
 	padding: 25px;
 }
+.container-main .container-main-two .container-main-two-memberhead{
+	margin-bottom: 10px;
+}
 .container-main .container-main-two-button{
 	margin-top: 15px;
-	margin-bottom: 25px;
+	margin-bottom: 15px;
 }
 .container-main .container-main-two .container-main-two-table-member button{
 	padding: 0;

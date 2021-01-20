@@ -42,6 +42,10 @@ exports.store = async (req, res) =>{
 	member.gender= gender,
 	member.joinedDate= Date.now(),
 	await member.save();  
+	req.flash('alerts',{
+		type:'sucess',
+		message: 'Member sucessfully added!'
+	})
 	res.redirect('/member');
 };
 

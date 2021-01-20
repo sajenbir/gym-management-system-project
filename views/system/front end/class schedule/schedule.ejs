@@ -17,8 +17,14 @@
 					<a href = "/schedule/create" button type="button" class="btn btn-outline-primary">
 						<i class="fas fa-plus-square"></i>Add Class </button></a>
 				</div>
+
+				<%- include('../../partial/alert.ejs')  %>
+
+				<div class="heading">
+					<p class="h3">Schedule List</p>
+				</div>
 				<div class="container-main-two-table">
-				<table class="table table-striped">
+				<table id="Schedulelist" class="table table-striped">
 					<thead>
 						<tr>
 							<th scope="col">Class Name</th>
