@@ -60,6 +60,9 @@
 .container-main .container-main-two-button a{
 	margin-right: 10px;
 }
+.container-main .container-main-two-button button{
+	margin-right: 10px;
+}
 .container-main .container-main-two-button i{
 	margin-right: 10px;
 	font-size: 1rem;
