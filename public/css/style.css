@@ -1,16 +1,22 @@
 .wrapper{
-	font-family: 'Playfair Display', serif;
+	font-family: 'Texturina', serif;
 }
-
-.nav-bar .container-fluid i{
-	margin-right: 10px;
+.nav-bar{
+	justify-content: center;
 }
 .nav-bar .container-fluid .navbar-brand{
-	margin-left: 25px;
+	display: flex;
+	justify-content: center;
+	align-items:center;
+	width: 100%;
+	font-family: 'Cinzel', serif;
+	letter-spacing: 2px;
+	font-weight: 600;
+
+	
 }
-.nav-bar .container-fluid .d-flex{
-	margin-right: 25px;
-	margin-top: 10px;
+.nav-bar .container-fluid .navbar-brand img{
+	margin-right: 15px;
 }
 
 .container-main{

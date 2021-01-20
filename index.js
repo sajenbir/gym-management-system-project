@@ -1,11 +1,19 @@
 const express =  require('express');
+
 const bodyParser =  require('body-parser');
+
 const apiRoutes =  require('./routes/member/web.js');
 const webRoutes =  require('./routes/member/web.js');
+
 const apiRoute =  require('./routes/class schedule/schedule.js');
 const webRoute =  require('./routes/class schedule/schedule.js');
+
 const apiRouter = require('./routes/product/items.js');
 const webRouter =  require('./routes/product/items.js');
+
+const apiworkRouter =  require('./routes/workout/workout plan.js');
+const webworkRouter =  require('./routes/workout/workout plan.js');
+
 const expressValidator = require('express-validator');
 const {flashValidatorError} =  require('./handler/errorhandler'); 
 const flash = require('connect-flash');
@@ -58,6 +66,8 @@ app.use('api', apiRoute);
 app.use('/', webRoute);
 app.use('api', apiRouter);
 app.use('/', webRouter);
+app.use('api', apiworkRouter);
+app.use('/', webworkRouter);
 
 
 app.listen(port, () => {
