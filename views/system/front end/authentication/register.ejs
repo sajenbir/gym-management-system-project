@@ -2,23 +2,86 @@
 <%- include('../../partial/header.ejs')  %>
 <!--  -->
 
-<form>
-    <div class="mb-3">
-      <label for="exampleInputEmail1" class="form-label">Email address</label>
-      <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
-      <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div>
-    </div>
-    <div class="mb-3">
-      <label for="exampleInputPassword1" class="form-label">Password</label>
-      <input type="password" class="form-control" id="exampleInputPassword1">
-    </div>
-    <div class="mb-3 form-check">
-      <input type="checkbox" class="form-check-input" id="exampleCheck1">
-      <label class="form-check-label" for="exampleCheck1">Check me out</label>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-  </form>
+<div class="wrapper">
+    <!-- navigation-bar -->
+    <%- include('../../partial/navbar.ejs')  %>
+    <!--  -->			
+    
+    <div class="container-main">
+        <!-- side-bar -->
+        <%- include('../../partial/sidebar.ejs')  %>
+        <!--  -->
+        <div class="container-main-two">
+            <form method= "post" action ="/register">
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" name = "email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value = "<%= oldInput.email%>">
+                    <div id="emailHelp" class="form-text">We'll never a share your email with anyone else.<%= errors.email%></div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="exampleInput first name" class="form-label">Enter your first name</label>
+                    <input type="text" name= "firstName" class="form-control" id="fname" aria-describedby="emailHelp" value = "<%= oldInput.firstName%>">
+                    <div id="emailHelp" class="form-text"> <%= errors.firstName%> </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="exampleInputlasttname" class="form-label">Enter your last name</label>
+                    <input type="text" name= "lastName" class="form-control" id="lname" aria-describedby="emailHelp" value = "<%= oldInput.lastName%>">
+                    <div id="emailHelp" class="form-text"> <%= errors.lastName%> </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="exampleInputage" class="form-label">Enter your age</label>
+                    <input type="number" name= "age" class="form-control" id="age" aria-describedby="emailHelp" value = "<%= oldInput.age%>">
+                    <div id="emailHelp" class="form-text"> <%= errors.age%> </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="exampleInputaddress" class="form-label">Enter your address</label>
+                    <input type="text" name= "address" class="form-control" id="address" aria-describedby="emailHelp" value = "<%= oldInput.address%>">
+                    <div id="emailHelp" class="form-text"> <%= errors.address%> </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="exampleInputGender" class="form-label">Enter the gender of member</label>
+                    <input type="radio" name="gender" value= "Male">Male
+                    <input type="radio" name="gender" value= "Female">Female
+                    <div id="emailHelp" class="form-text"><%= errors.gender%></div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="exampleInputcontactNumber" class="form-label">Enter your conctact number</label>
+                    <input type="number" name= "contactNumber" class="form-control" id="contactNumber" aria-describedby="emailHelp" value = "<%= oldInput.contactNumber%>">
+                    <div id="emailHelp" class="form-text"> <%= errors.contactNumber%> </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" name= "password" class="form-control" id="exampleInputPassword1">
+                    <div id="emailHelp" class="form-text"> <%= errors.password%> </div>
+                </div>
+                
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" onclick="myFunction()">
+                    <label class="form-check-label" for="exampleCheck1">Show Password</label>
+                </div>
 
-  <!-- footer -->
-<%- include('../../partial/footer.ejs')  %>
-<!--  -->
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        
+        <script>
+            function myFunction() {
+                let x = document.getElementById("exampleInputPassword1");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+        
+        <!-- footer -->
+        <%- include('../../partial/footer.ejs')  %>
+        <!--  --> 

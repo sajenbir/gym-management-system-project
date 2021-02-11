@@ -12,7 +12,8 @@ require('dotenv').config({path:'.env'});
 	}
 })();
 
-require('./model/schedule.js')
+require('./model/register.js');
+require('./model/schedule.js');
 require('./model/gymemployee.js');
 require('./model/member.js');
 require('./index.js');

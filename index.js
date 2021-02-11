@@ -19,7 +19,7 @@ const webworkRouter =  require('./routes/workout/workout plan.js');
 
 //Register
 const apiRegister = require('./routes/authentication/register.js');
-const webRegister = require('./routes/authentication/register.js')
+const webRegister = require('./routes/authentication/register.js');
 
 const expressValidator = require('express-validator');
 const {flashValidatorError} =  require('./handler/errorhandler'); 
@@ -29,7 +29,9 @@ const session = require('express-session');
 const MongoStore = require('connect-mongo')(session);
 const mongoose = require('mongoose')
 const methodOverride = require('method-override');
+const passport = require('passport');
 
+require('./handler/passport');
 
 
 const app = express();
@@ -42,7 +44,10 @@ app.use(bodyParser.urlencoded({extended:false}));
 // // app.use(expressValidator());
 // app.use(flashValidatorError());
  
+//setup for view engine
 app.set('view engine', 'ejs');
+
+//cookie setup
 app.use(cookieParser());
 app.use(session({
 	secret: process.env.SECRET,
@@ -55,6 +60,10 @@ app.use(session({
 }))
 
 app.use(methodOverride(('_method')));
+
+//passport initilization
+app.use(passport.initialize());
+app.use(passport.session());
 
 app.use(flash());
 app.use((req, res, next) => {
