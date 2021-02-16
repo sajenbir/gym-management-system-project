@@ -1,20 +1,25 @@
 .wrapper{
 	font-family: 'Texturina', serif;
 }
-.nav-bar{
-	justify-content: center;
-}
+
 .nav-bar .container-fluid .navbar-brand{
 	display: flex;
-	justify-content: center;
+	margin-left: 40%;
 	align-items:center;
-	width: 100%;
 	font-family: 'Cinzel', serif;
 	letter-spacing: 2px;
 	font-weight: 600;
-
-	
 }
+
+.nav-bar .container-fluid .login-register-button i{
+	font-size: 1.4rem;
+	margin-right: 30px;
+	color: #141415;
+}
+.nav-bar .container-fluid .login-register-button i:hover{
+	color:#2B60DE;
+}
+
 .nav-bar .container-fluid .navbar-brand img{
 	margin-right: 15px;
 }

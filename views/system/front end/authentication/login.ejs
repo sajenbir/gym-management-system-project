@@ -1,0 +1,54 @@
+<!-- header -->
+<%- include('../../partial/header.ejs')  %>
+<!--  -->
+
+<div class="wrapper">
+    <!-- navigation-bar -->
+    <%- include('../../partial/navbar.ejs')  %>
+    <!--  -->			
+    
+    <div class="container-main">
+        <!-- side-bar -->
+        <%- include('../../partial/sidebar.ejs')  %>
+        <!--  -->
+        <div class="container-main-two">
+            <form method= "post" action ="/login">
+                
+                <h1>Login</h1>
+                <%- include('../../partial/alert') %>
+                
+                <div class="mb-3">
+                    <label for="exampleInputEmail1" class="form-label">Email address</label>
+                    <input type="email" name = "email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value = "<%= oldInput.Email%>">
+                    <div id="emailHelp" class="form-text"><%= errors.Email%> </div>
+                </div>
+                
+                <div class="mb-3">
+                    <label for="exampleInputPassword1" class="form-label">Password</label>
+                    <input type="password" name= "password" class="form-control" id="exampleInputPassword1">
+                    <div id="emailHelp" class="form-text"> <%= errors.password%> </div>
+                </div>
+                
+                <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" onclick="myFunction()">
+                    <label class="form-check-label" for="exampleCheck1">Show Password</label>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </form>
+        </div>
+        
+        <script>
+            function myFunction() {
+                let x = document.getElementById("exampleInputPassword1");
+                if (x.type === "password") {
+                    x.type = "text";
+                } else {
+                    x.type = "password";
+                }
+            }
+        </script>
+        
+        <!-- footer -->
+        <%- include('../../partial/footer.ejs')  %>
+        <!--  --> 

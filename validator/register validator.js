@@ -1,6 +1,8 @@
 const {checkSchema} = require('express-validator');
+const mongoose =  require('mongoose');
+const register = mongoose.model('register');
 
-
+//Validation for registering
 let authValidator = checkSchema({
     'Email' : {
         isLength:{
@@ -10,7 +12,18 @@ let authValidator = checkSchema({
         },
         isEmail :{
             errorMessage: 'Email is required',
-        }
+        },
+        custom:{
+            options: async (value, {req,location,path}) => {
+                const register = await register.findOne({Email:value});
+                if(register){
+                    throw new Error('Email is already taken');
+                }
+                else{
+                    return true;
+                }
+            }
+        }        
     },
     'firstName' : {
         isLength: {
@@ -57,4 +70,39 @@ let authValidator = checkSchema({
     }    
 });  
 
-module.exports = authValidator;
+//Validation for login
+let loginValidator = checkSchema({
+    'Email' : {
+        isLength:{
+            errorMessage: 'Email is required',
+            options: { min: 1 },
+            trim: true,
+        },
+        isEmail :{
+            errorMessage: 'Email is required',
+        },
+        custom:{
+            options: async (value, {req,location,path}) => {
+                const register = await register.findOne({Email:value});
+                if(register){
+                    throw new Error('Email is already taken');
+                }
+                else{
+                    return true;
+                }
+            }
+        }
+    },
+    'password' :{
+        isLength:{
+            errorMessage: 'Password is required',
+            options: {min:1},
+            trim: true,
+        }
+    }    
+}); 
+
+module.exports = {
+    authValidator,
+    loginValidator
+};

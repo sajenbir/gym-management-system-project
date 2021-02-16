@@ -15,8 +15,8 @@
             <form method= "post" action ="/register">
                 <div class="mb-3">
                     <label for="exampleInputEmail1" class="form-label">Email address</label>
-                    <input type="email" name = "email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value = "<%= oldInput.email%>">
-                    <div id="emailHelp" class="form-text">We'll never a share your email with anyone else.<%= errors.email%></div>
+                    <input type="email" name = "email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" value = "<%= oldInput.Email%>">
+                    <div id="emailHelp" class="form-text"><%= errors.Email%></div>
                 </div>
                 
                 <div class="mb-3">
@@ -51,7 +51,7 @@
                 </div>
                 
                 <div class="mb-3">
-                    <label for="exampleInputcontactNumber" class="form-label">Enter your conctact number</label>
+                    <label for="exampleInputcontactNumber" class="form-label">Enter your contact number</label>
                     <input type="number" name= "contactNumber" class="form-control" id="contactNumber" aria-describedby="emailHelp" value = "<%= oldInput.contactNumber%>">
                     <div id="emailHelp" class="form-text"> <%= errors.contactNumber%> </div>
                 </div>
